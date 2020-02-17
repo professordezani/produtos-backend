@@ -1,8 +1,17 @@
 {
-  "name": "produtos-backend",
-  "version": "1.0.0",
+  "name": "yarn",
+  "version": "node index.js",
   "main": "index.js",
+  "scripts":{
+      "start" : "nodemon index.js"
+  },
   "dependencies": {
     "express": "^4.17.1"
+  },
+  "repository": "https://github.com/FabioSeven/produtos-backend.git",
+  "author": "FabioSeven <fabio.maia21@hotmail.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "nodemon": "^2.0.2"
   }
 }
