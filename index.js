@@ -12,18 +12,66 @@ var produtos = [
 
 ];
 
+//middlewares: (Para considerar o que chegar no servidor como json)
+server.use(express.json());
+
+//GET DE TODOS OS PRODUTOS
 server.get('/produto', function(request, response){
+
     return response.json(produtos);
+
 })
 
+//GET DE PRODUTOS POR ID
 server.get('/produto/:id', function(request, response){
 
     const id = request.params.id;
-
     const produto = produtos.filter(p => p.id == id);
-
     return response.json(produto);
 
 })
+
+//POST PARA INSERÇÃO DE DADOS JSON
+server.post('/produto', function(request, response){
+
+    const produto = request.body;
+    produtos.push(produto);
+    return response.status(201).send();
+
+})
+
+//DELETE DE DADOS JSON
+server.delete('/produto/:id', function(request, response){
+
+    //REESCREVENDO
+    const id = request.params.id;
+    const produto = produtos.filter(p => p.id != id);
+    return response.status(200).send();
+
+    //POR EXCLUSÃO
+    // for(var i = 0; i < produtos.length; i++){
+    //     produtos.splice(i, 1);
+    //     return response.status(200).send();
+    // }
+
+})
+
+//UPDATE DE DADOS JSON
+server.put('/produto/:id', (req, res) => {
+
+    const id = req.params.id;
+    const produto = req.body;
+
+    produtos.forEach(p => {
+        if(p.id == id){
+            p.nome = produto.nome;
+            p.preco = produto.preco;
+            return;
+        }
+        return res.send();
+    })
+
+})
+
 
 server.listen(3000);
