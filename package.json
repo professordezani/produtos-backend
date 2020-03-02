@@ -2,11 +2,12 @@
   "name": "yarn",
   "version": "node index.js",
   "main": "index.js",
-  "scripts":{
-      "start" : "nodemon index.js"
+  "scripts": {
+    "start": "nodemon index.js"
   },
   "dependencies": {
-    "express": "^4.17.1"
+    "express": "^4.17.1",
+    "mongoose": "^5.9.3"
   },
   "repository": "https://github.com/FabioSeven/produtos-backend.git",
   "author": "FabioSeven <fabio.maia21@hotmail.com>",

@@ -1,5 +1,12 @@
 const express = require('express');
 const server = express();
+const mongoose = require('mongoose');
+const produto = require('./ProdutoSchema')
+const MONGO_URL = "mongodb+srv://user:senha@clusterlp3noite-cnx8h.mongodb.net/dbproduto?retryWrites=true&w=majority"
+
+const db = moongose.connect(MONGO_URL);
+
+
 
 var produtos = [
 
